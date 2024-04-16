@@ -1,0 +1,174 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="ion-padding">
+    <h3 class="ion-text-center">{{evento.Tituloevento}}</h3>
+    <div class="ion-text-center">
+        <img [src]="evento.Fotoevento | imagen" alt="">
+    </div>
+
+    <ion-grid>
+      <ion-row>
+          <ion-col size="6" class="ion-text-start">
+              {{ 'START' | translate }}: <b>{{evento.Fechaini | date:'dd/MM/YYYY'}}</b>
+          </ion-col>
+          <ion-col size="6" class="ion-text-end">
+              {{ 'END' | translate }}: <b>{{evento.Fechafin | date:'dd/MM/YYYY'}}</b>
+          </ion-col>
+      </ion-row>
+      <ion-row *ngIf="evento.Finasignacion">
+          <ion-col>
+              {{ 'LAST_DAY_TO_GET_IT' | translate }}: <b style="color:brown;">{{evento.Finasignacion | date:'dd/MM/YYYY'}}</b>
+          </ion-col>
+      </ion-row>
+      <ion-row *ngIf='evento.Ocultar_Precio != "1"'>
+          <ion-col>
+              {{ 'INVESTMENT' | translate }}: <b>{{(evento.Precio == null || evento.Precio == 0) ? ('FREE' | translate) : (evento.Precio | currency:'Q':'code')}}</b>
+          </ion-col>
+          <ion-col *ngIf="evento.Pagos > 1">
+              <strong class="badge">{{ 'UP_TO_PAYMENTS' | translate:{value: evento.Pagos} }}</strong>
+          </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="evento.Asigtemprana == 0">
+        <ion-col>
+          <ion-button expand="block" color="cart" (click)="this.addCart(evento)">
+              <ion-icon slot="start" name="cart"></ion-icon>
+              {{(evento.Precio == null || evento.Precio == 0) ? ('ASSIGN' | translate) : ('ADD_TO_CART' | translate)}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="evento.Asigtemprana != 0">
+        <ion-col>
+          <ion-label class="badge">
+              <h5>{{ 'AVAILABLE_SOON' | translate:{value: evento.Diasfaltantes} }}</h5>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Incluye -->
+  <ion-card *ngIf="this._ep.evento_detalle.Detalle?.length != 0">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="list"></ion-icon>
+        {{ 'INCLUDE' | translate }}
+      </ion-card-title>
+    </ion-card-header>
+    <hr>
+    <ion-card-content>
+      <ion-row *ngFor="let detalle of this._ep.evento_detalle.Detalle">
+        <div [innerHtml]="detalle.Detalle"></div>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Horario -->
+  <ion-card *ngIf="this._ep.evento_detalle.Horario?.length != 0">
+    <ion-card-header icon-start>
+      <ion-card-title>
+        <ion-icon name="time"></ion-icon>
+        {{ 'SCHEDULE' | translate }}
+      </ion-card-title>
+    </ion-card-header>
+    <hr>
+    <ion-card-content>
+      <ion-list [inset]="true">
+        <ion-item *ngFor="let horario of this._ep.evento_detalle.Horario">
+          <ion-grid>
+            <ion-row>
+                <ion-col size="4">{{horario.Dianombre}}</ion-col>
+                <ion-col size="4" style="font-size:10px"><strong>{{ 'START' | translate }}: </strong>{{horario.Horaini | date:'hh:mm a'}}</ion-col>
+                <ion-col size="4" style="font-size:10px"><strong>{{ 'FINISH' | translate }}: </strong>{{horario.Horafin | date:'hh:mm a'}}</ion-col>
+            </ion-row>
+            <ion-row class="ion-text-wrap" style="font-size:10px">
+                <ion-col size="4" offset="4"><strong>{{ 'LOUNGE' | translate }}:</strong></ion-col>
+                <ion-col size="4"><strong>{{ 'TOWER' | translate }}:</strong></ion-col>
+            </ion-row>
+            <ion-row class="ion-text-wrap" style="font-size:10px">
+                <ion-col size="4" offset="4">{{horario.Salon}}</ion-col>
+                <ion-col size="4">{{horario.Torre}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <!-- Nuestro equipo -->
+  <ion-card *ngIf="this._ep.evento_detalle.Personal?.length != 0 || this._ep.evento_detalle.PersonalExterno?.length != 0">
+    <ion-card-header icon-start>
+      <ion-card-title>
+        <ion-icon name="people"></ion-icon>
+        {{ 'OUR_TEAM' | translate }}
+      </ion-card-title>
+    </ion-card-header>
+    <hr>
+    <ion-card-content>
+      <swiper-container [modules]="swiperModules">
+
+        <swiper-slide *ngFor="let personal of this._ep.evento_detalle.Personal">
+          <ion-grid>
+            <ion-row>
+                <ion-col size="8" offset="2" class="ion-text-center">
+                  <!-- <div text-center> -->
+                  <img [src]="personal.FOTO | imagenperfil" style="object-fit: contain" onerror="this.src='./assets/imgs/SinPerfil.png'">
+                  <!-- </div> -->
+                </ion-col>
+            </ion-row>
+          </ion-grid>
+          <h2>{{personal.Nombre}}</h2>
+          <p>{{personal.Puesto}}</p>
+          <br><br>
+        </swiper-slide>
+
+        <swiper-slide *ngFor="let personal of this._ep.evento_detalle.PersonalExterno">
+          <ion-row>
+            <ion-col size="8" offset="2" class="ion-text-center">
+              <div class="ion-text-center" *ngIf="personal.Fotos != 0">
+                <img [src]="personal.RUTA[0].RUTA | imagenperfil" style="object-fit: contain" onerror="this.src='./assets/imgs/SinPerfil.png'">
+              </div>
+              <div class="ion-text-center" *ngIf="personal.Fotos == 0">
+                <img [src]="personal.Foto | imagenperfil" style="object-fit: contain" onerror="this.src='./assets/imgs/SinPerfil.png'">
+              </div>
+            </ion-col>
+          </ion-row>
+          <h2>{{personal.Nombre}}</h2>
+          <p>{{personal.Puesto}}</p>
+          <br><br>
+        </swiper-slide>
+
+      </swiper-container>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Galería -->
+  <ion-card *ngIf="this._ep.evento_detalle.Galeria?.length != 0">
+    <ion-card-header icon-start>
+      <ion-card-title>
+        <ion-icon name="images"></ion-icon>
+        {{ 'GALLERY' | translate }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <swiper-container pager>
+        <swiper-slide *ngFor="let imagen of this._ep.evento_detalle.Galeria">
+          <img [src]="imagen.RUTA | imagen">
+          <br><br>
+        </swiper-slide>
+      </swiper-container>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

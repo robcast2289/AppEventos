@@ -3,5 +3,23 @@
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular-standalone"
+  "type": "angular-standalone",
+  "proxies": [
+    {
+      "path": "/proxyapi/",
+      "proxyUrl": "https://eventos.galileo.edu/"
+    }, 
+    {
+      "path": "/proxyapibeta/",
+      "proxyUrl": "https://betaeventos.galileo.edu:8081/"
+    }, 
+    {
+      "path": "/proxyapimiguel/",
+      "proxyUrl": "http://10.0.3.138:8000/"
+    }, 
+    {
+      "path": "/proxygoogle/",
+      "proxyUrl": "https://www.googleapis.com/"
+    }
+  ]
 }

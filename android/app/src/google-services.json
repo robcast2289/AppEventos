@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "213739652036",
+    "firebase_url": "https://eventosapp-37206.firebaseio.com",
+    "project_id": "eventosapp-37206",
+    "storage_bucket": "eventosapp-37206.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213739652036:android:e682c8289409f2c5",
+        "android_client_info": {
+          "package_name": "edu.galileo.eventosapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213739652036-amp7o7dk2nfecb9mqi4a6m664vq5h2lr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.galileo.eventosapp",
+            "certificate_hash": "73d9d9df0127b9f4ccaec4801fcf6270a2c04db0"
+          }
+        },
+        {
+          "client_id": "213739652036-fglliu9vl93qs0v2m25cu7ci5mc4qn7t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.galileo.eventosapp",
+            "certificate_hash": "72a60b4d2a0b65a0095f439108b9d97a8bc9849d"
+          }
+        },
+        {
+          "client_id": "213739652036-hkbu6rlc7l8h9plvtb05b1i94al7t5mr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.galileo.eventosapp",
+            "certificate_hash": "01895d61fe7507575e7ca067e445ddba7b44fdd1"
+          }
+        },
+        {
+          "client_id": "213739652036-vr8veip5gn3rvqtssbbotremgm52s724.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.galileo.eventosapp",
+            "certificate_hash": "c8d5fb1a7503c3273c395bd6bbfd78d6cd9cfbaa"
+          }
+        },
+        {
+          "client_id": "213739652036-mihsbsqs8h3jrdam3ujkk3ufcbt66rrf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz_8bJo0N-AsreSLlgHXNhgtJAlnSPHGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213739652036-mihsbsqs8h3jrdam3ujkk3ufcbt66rrf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213739652036-lj7389ne33lu6tjcrhbr80mvohd72qpo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.galileo.eventosapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
