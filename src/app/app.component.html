@@ -1,0 +1,71 @@
+<div class="ion-page">
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" menuId="menup">
+      <ion-content id="contenido">
+        <ion-list id="inbox-list">
+          <ion-item  *ngIf="this._up.logueado" >
+
+            <img [src]="this._up.credenciales.photoURL" class="imgRedonda">
+
+            <h3>{{this._up.credenciales.nombre}}</h3>
+            <p>{{this._up.credenciales.email}}</p>
+
+          </ion-item>
+          
+          <ion-item class="ion-text-center" *ngIf="!this._up.logueado" (click)="signIn()">
+            <div class="ion-text-center">
+            <img src="./assets/imgs/avtr.png" class="imgRedonda">
+            <h3>{{ 'LOGIN' | translate | uppercase}}</h3>
+            <!-- <h3>LOGIN'</h3> -->
+            <p></p>
+            </div>
+          </ion-item>
+
+          <ion-item *ngFor="let p of this._up.pages">
+            <ion-icon name="{{p.icon}}" *ngIf="p.icon" slot="start"></ion-icon>
+            <img src="./assets/imgs/menu/{{p.image}}" alt="" *ngIf="p.image" style="width: 24px; height: 24px; padding: 3px; margin-inline-end: 32px;">
+            <ion-label>{{p.title | translate}}</ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="this._up.logueado" (click)="signOut()">
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>{{ 'LOGOUT' | translate }}</ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="!this._up.logueado" (click)="signIn()">
+            <ion-icon name="log-in" slot="start"></ion-icon>
+            <ion-label>{{ 'LOGIN' | translate }}</ion-label>
+          </ion-item>
+
+          <!-- <button menuClose ion-item *ngFor="let p of this._up.pages" >
+              <ion-icon name="{{p.icon}}" *ngIf="p.icon"></ion-icon>
+              <img src="./assets/imgs/menu/{{p.image}}" alt="" *ngIf="p.image" style="width: 24px; height: 24px; padding: 3px;">
+              <ion-badge color="danger" class="carrito-numero2" *ngIf="_cp.items.length > 0 && p.title == 'CART'">
+                  {{_cp.items.length}}
+              </ion-badge>
+              <ion-badge color="danger" class="carrito-numero2" *ngIf="_cp.asignados.length > 0 && p.title == 'ASSIGNED'">
+                  {{_cp.asignados.length}}
+              </ion-badge>
+              {{p.title | translate}}
+          </button>
+
+          <button ion-item *ngIf="this._up.logueado">
+              <ion-icon name="md-close-circle"></ion-icon>
+              {{ 'LOGOUT' | translate }}
+          </button>
+
+          <button ion-item *ngIf="!this._up.logueado">
+              <ion-icon name="md-log-in"></ion-icon>
+              Iniciar Sesión
+              {{ 'LOGIN' | translate }}
+          </button> -->
+        </ion-list>
+
+      </ion-content>
+    </ion-menu>
+    
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+</div>

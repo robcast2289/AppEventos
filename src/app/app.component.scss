@@ -1,0 +1,242 @@
+ion-menu ion-content {
+  --background: var(--ion-item-background, var(--ion-background-color, linear-gradient(to right, #1b1b1b 0%, #383838 51%, #595959 100%)));
+}
+
+ion-menu.md ion-content {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+ion-menu.md ion-list {
+  padding: 20px 0;
+}
+
+ion-menu.md ion-note {
+  margin-bottom: 30px;
+}
+
+ion-menu.md ion-list-header,
+ion-menu.md ion-note {
+  padding-left: 10px;
+}
+
+ion-menu.md ion-list#inbox-list {
+  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+}
+
+ion-menu.md ion-list#inbox-list ion-list-header {
+  font-size: 22px;
+  font-weight: 600;
+
+  min-height: 20px;
+}
+
+ion-menu.md ion-list#labels-list ion-list-header {
+  font-size: 16px;
+
+  margin-bottom: 18px;
+
+  color: #757575;
+
+  min-height: 26px;
+}
+
+ion-menu.md ion-item {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  border-radius: 4px;
+}
+
+ion-menu.md ion-item.selected {
+  --background: rgba(var(--ion-color-primary-rgb), 0.14);
+}
+
+ion-menu.md ion-item.selected ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-menu.md ion-item ion-icon {
+  color: #616e7e;
+}
+
+ion-menu.md ion-item ion-label {
+  font-weight: 500;
+}
+
+ion-menu.ios ion-content {
+  --padding-bottom: 20px;
+}
+
+ion-menu.ios ion-list {
+  padding: 20px 0 0 0;
+}
+
+ion-menu.ios ion-note {
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+ion-menu.ios ion-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 50px;
+}
+
+ion-menu.ios ion-item.selected ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-menu.ios ion-item ion-icon {
+  font-size: 24px;
+  color: #73849a;
+}
+
+ion-menu.ios ion-list#labels-list ion-list-header {
+  margin-bottom: 8px;
+}
+
+ion-menu.ios ion-list-header,
+ion-menu.ios ion-note {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+ion-menu.ios ion-note {
+  margin-bottom: 8px;
+}
+
+ion-note {
+  display: inline-block;
+  font-size: 16px;
+
+  color: var(--ion-color-medium-shade);
+}
+
+ion-item.selected {
+  --color: var(--ion-color-primary);
+}
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: rgb(68, 150, 150);
+  border-radius: 10px;
+}
+
+.badge-ios-danger,
+.badge-md-danger {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #f53d3d;
+  border-radius: 10px;
+}
+
+#contenido,
+#contenido ion-list ion-item,
+#contenido ion-list button {
+  /*background: #0b4554;
+  background: -moz-linear-gradient(left, #0b4554 0%, #1669ac 76%, #2793e5 100%);
+  background: -webkit-linear-gradient(left, #0b4554 0%, #1669ac 76%, #2793e5 100%);
+  background: linear-gradient(to right, #0b4554 0%, #1669ac 76%, #2793e5 100%);*/
+  --background: #1b1b1b;
+  /* Old browsers */
+  --background: -moz-linear-gradient(left, #1b1b1b 0%, #383838 51%, #595959 100%);
+  /* FF3.6-15 */
+  --background: -webkit-linear-gradient(left, #1b1b1b 0%, #383838 51%, #595959 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  --background: linear-gradient(to right, #1b1b1b 0%, #383838 51%, #595959 100%) !important;
+  /* --background: var(--ion-item-background, var(--ion-background-color, linear-gradient(to right, #1b1b1b 0%, #383838 51%, #595959 100%))); */
+}
+
+#contenido,
+#contenido ion-list,
+#contenido ion-list ion-item,
+#contenido ion-list button {
+  /*background: #0b4554;
+  background: -moz-linear-gradient(left, #0b4554 0%, #1669ac 76%, #2793e5 100%);
+  background: -webkit-linear-gradient(left, #0b4554 0%, #1669ac 76%, #2793e5 100%);
+  background: linear-gradient(to right, #0b4554 0%, #1669ac 76%, #2793e5 100%);*/
+  background: #1b1b1b;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #1b1b1b 0%, #383838 51%, #595959 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #1b1b1b 0%, #383838 51%, #595959 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #1b1b1b 0%, #383838 51%, #595959 100%) !important;
+  /* --background: var(--ion-item-background, var(--ion-background-color, linear-gradient(to right, #1b1b1b 0%, #383838 51%, #595959 100%))); */
+}
+
+
+
+#contenido ion-list ion-item h3,
+#contenido ion-list ion-item p,
+#contenido ion-list ion-icon,
+#contenido ion-list ion-label {
+  color: white;
+}
+
+.imgRedonda {
+  width: 100px;
+  height: 100px;
+  border-radius: 150px;
+}
+
+
+/* ion-content {
+  background: #f5f6f6;
+  background: -moz-linear-gradient(-45deg, #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%);
+  background: -webkit-linear-gradient(-45deg, #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%);
+  background: linear-gradient(135deg, #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%);
+} */
+
+.carrito-numero {
+  position: absolute;
+  top: -5px;
+  left: 18px;
+}
+
+.carrito-numero2 {
+  position: absolute;
+  top: 2px;
+  left: 20px;
+}
+
+// Pone color verde la barra de navegacion
+ion-header,
+.toolbar-background {
+  //background-color: #449696;
+  background-color: #009798;
+}
+
+.toolbar-title,
+.bar-button {
+  color: white;
+}
+
+.tab-button[aria-selected=true] {
+  color: #009798 !important;
+  padding: 0;
+}
+
+.tab-button[aria-selected=true] .tab-button-icon {
+  color: #009798 !important;
+  padding: 0;
+}
